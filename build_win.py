@@ -7,7 +7,7 @@ import shutil
 def clean_build():
     for d in ['build', 'dist']:
         if os.path.exists(d):
-            print(f"清理 {d}/ ...")
+            print(f"Cleaning {d}/ ...")
             shutil.rmtree(d)
     for f in os.listdir('.'):
         if f.endswith('.spec'):
@@ -16,7 +16,7 @@ def clean_build():
 
 def build_app():
     print("=" * 70)
-    print("打包碳酸锂分析工具 (Windows 版)")
+    print("Building Lithium Analyzer (Windows Version)")
     print("=" * 70)
 
     clean_build()
@@ -25,8 +25,7 @@ def build_app():
         'main.py',
         '--onedir',
         '--windowed',
-        '--name=碳酸锂分析工具',
-        # Windows 上用分号 ;
+        '--name=LithiumAnalyzer',
         '--add-data=data_processor.py;.',
         '--add-data=conduction_quant_v2.py;.',
         '--add-data=fundamental_quant.py;.',
@@ -54,11 +53,11 @@ def build_app():
     ])
 
     print("\n" + "=" * 70)
-    print("✅ 打包完成！")
+    print("BUILD COMPLETE!")
     print("=" * 70)
-    exe_path = os.path.abspath('dist/碳酸锂分析工具/碳酸锂分析工具.exe')
+    exe_path = os.path.abspath('dist/LithiumAnalyzer/LithiumAnalyzer.exe')
     if os.path.exists(exe_path):
-        print(f"📁 可执行文件: {exe_path}")
+        print(f"Executable: {exe_path}")
 
 
 if __name__ == '__main__':
