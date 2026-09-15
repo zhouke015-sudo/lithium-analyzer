@@ -26,6 +26,13 @@ jobs:
       - name: Build with PyInstaller
         run: python build_win.py
 
+      - name: Verify DLLs are present
+        run: |
+          echo "=== Checking sklearn/.libs/ ==="
+          dir dist\LithiumAnalyzer\_internal\sklearn\.libs\
+          echo "=== Checking _internal/ root ==="
+          dir dist\LithiumAnalyzer\_internal\msvcp140.dll
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
